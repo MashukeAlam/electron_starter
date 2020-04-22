@@ -1,0 +1,54 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="index.css">
+    <title>CFriend</title>
+  </head>
+
+  <body>
+    <div>
+      <h1>Assalamu Alaikum 💕</h1>
+    </div>
+    
+  <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+  
+  <script src="./script.js"></script>
+  <script src="./ipcHandler.js"></script>
+
+  <script>
+    
+
+    ipcRenderer.on(CHANNEL_NAMES[0], (e, args) => {
+      console.log(args);
+      
+    });
+
+
+    ipcRenderer.on(CHANNEL_NAMES[1], (e, args) => {
+      console.log(args);
+      document.getElementById("res_content").innerHTML = "";
+      let res_header = args[0];
+      if(res_header == "Success"){
+     document.getElementById("res_content").innerHTML += "<span class='success'>Successfully Compiled 😎</span></br>";
+     document.getElementById("res_content").innerHTML += args[1];
+      }else{
+        document.getElementById("res_content").innerHTML += "<span class='error'>Oops Error 😭</span></br>";
+     document.getElementById("res_content").innerHTML += args[1];
+
+      }
+      
+    });
+    
+  </script>
+
+  
+
+  <script>
+    crProcess = () => {      
+      let code = _ide.value;
+      send_data(CHANNEL_NAMES[0], code);
+    }
+  </script>
+</html>

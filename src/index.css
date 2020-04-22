@@ -1,0 +1,40 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: auto;
+  max-width: 38rem;
+  padding: 2rem;
+}
+
+
+@font-face {
+  font-family: Monaco;
+  src: url('./fonts/monaco.ttf');
+}
+
+#ide {
+  font-family: Monaco;
+}
+#res_content {
+  font-family: Monaco;
+}
+    .env {
+      display: flex;
+      align-items: flex-start;
+      justify-content: start;
+      flex-direction: row;
+    }
+
+    #res {
+      border: 1px solid black;
+      margin: 5px;
+    }
+
+    .success {
+      color: green;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .error {
+      color: red;
+      font-family: 'Times New Roman', Times, serif;
+    }
